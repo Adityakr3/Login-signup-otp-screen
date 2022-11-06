@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   route() {
-    Navigator.of(context).pushReplacementNamed('Loginscreen');
+    Navigator.of(context).pushReplacementNamed('/LoginScreen');
   }
 
   @override

@@ -1,19 +1,14 @@
-
-import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/otpage.dart';
 
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<Signup> createState() => _SignupState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  body() => null;
-
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,24 +19,24 @@ class _LoginScreenState extends State<LoginScreen> {
               color: Colors.black,
               size: 25,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context,
+                  MaterialPageRoute(builder: (context) => const Otpage()));
+            },
           ),
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
-              SizedBox(
-                width: 10,
-              ),
               Text(
-                'Login',
+                'Sign Up',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 25,
-                    fontWeight: FontWeight.bold),
-              ),
+                    fontWeight: FontWeight.w600),
+              )
             ],
           ),
+          backgroundColor: Colors.white,
         ),
         body: Stack(
           fit: StackFit.expand,
@@ -76,13 +71,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 550,
                   width: MediaQuery.of(context).size.width,
                   // ignore: prefer_const_constructors
-                  decoration:
-                      const BoxDecoration(color: Color.fromARGB(163, 147, 221, 105)),
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(163, 147, 221, 105)),
                 )),
             Positioned(
               top: 250,
               child: Container(
-                height: 350,
+                height: 360,
                 padding: const EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width - 40,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -104,18 +99,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         Column(
                           children: const [
                             Text(
-                              "Welcome to Kapiva!",
+                              "Welcome !",
                               style: TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(224, 214, 111, 102)),
+                                  color: Color.fromARGB(223, 0, 0, 0)),
                             ),
                             SizedBox(
                               height: 5,
                             ),
                             Text(
-                              "Enter your mobile number and we will send "
-                              "\n              you an Otp for verification",
+                              "Create your account for a seamless exprience ",
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w500),
                             )
@@ -127,23 +121,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 30,
                     ),
                     Column(
-                      children: [
-                        Center(
-                          child:
-                        )
-                      ],
-                    ),
-
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Column(
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         const TextField(
                           decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.phone,
-                                  size: 28,
+                              prefixIcon: Icon(Icons.account_circle_outlined
+,
+                                  size: 35,
                                   color: Color.fromARGB(255, 80, 162, 76)),
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -153,7 +137,53 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderSide: BorderSide(
                                       color:
                                           Color.fromARGB(255, 114, 201, 83))),
-                              hintText: "Mobile number "),
+                              hintText: " First Name"),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 11,
+                    ),
+                    Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const TextField(
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.account_circle_outlined,
+                                  size: 35,
+                                  color: Color.fromARGB(255, 80, 162, 76)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 114, 201, 83))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 114, 201, 83))),
+                              hintText: "Last Name "),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 11,
+                    ),
+                    Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const TextField(
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.email_outlined,
+                                  size: 35,
+                                  color: Color.fromARGB(255, 80, 162, 76)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 114, 201, 83))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 114, 201, 83))),
+                              hintText: "Email"),
                         )
                       ],
                     ),
@@ -162,42 +192,36 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             Positioned(
-                top: 550,
-                right: 0,
-                left: 0,
-                child: Center(
-                  child: Container(
-                    height: 90,
-                    width: 90,
-                    padding: EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(90),
-                        ),
-                    child: TextButton(
-                    onPressed: () {  
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Otpage()));
-                                   },
-                          child: Center(
-                          child: Container(
-                            height: 91,
-                            width: 91,
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(227, 134, 174, 96),
-                              borderRadius: BorderRadius.circular(55)
-                            ),
-                            child: const Icon(Icons.arrow_forward,color:Colors.white,size: 38,
-                            ),
-                                               ),
-                        ),
+              top: 560,
+              right: 0,
+              left: 0,
+              child: Center(
+                child: Container(
+                  height: 80,
+                  width: 80,
+                  padding:  const EdgeInsets.all(13),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(80),
+                  ),
+                  child: Center(
+                    child: Container(
+                      height: 75,
+                      width: 75,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(227, 134, 174, 96),
+                          borderRadius: BorderRadius.circular(75)),
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                        size: 38,
+                      ),
+                    ),
                   ),
                 ),
-              )
-           )],
-        )
-      );
+              ),
+            )
+          ],
+        ));
   }
 }
