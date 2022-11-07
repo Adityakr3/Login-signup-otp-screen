@@ -1,8 +1,5 @@
-
-import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/otpage.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-                  leading: IconButton(
+          leading: IconButton(
             icon: const Icon(
               Icons.arrow_back_ios,
               color: Colors.black,
@@ -76,8 +73,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 550,
                   width: MediaQuery.of(context).size.width,
                   // ignore: prefer_const_constructors
-                  decoration:
-                      const BoxDecoration(color: Color.fromARGB(163, 147, 221, 105)),
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(163, 147, 221, 105)),
                 )),
             Positioned(
               top: 250,
@@ -127,13 +124,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 30,
                     ),
                     Column(
-                      children: [
-                        Center(
-                          child:
+                      children: const [
+                        TextField(
+                          decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.flag_outlined,
+                                  size: 28,
+                                  color: Color.fromARGB(255, 80, 162, 76)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 114, 201, 83))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(255, 114, 201, 83))),
+                              hintText: " +91 "),
                         )
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
@@ -171,33 +179,34 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 90,
                     padding: EdgeInsets.all(7),
                     decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(90),
-                        ),
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(90),
+                    ),
                     child: TextButton(
-                    onPressed: () {  
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Otpage()));
-                                   },
-                          child: Center(
-                          child: Container(
-                            height: 91,
-                            width: 91,
-                            decoration: BoxDecoration(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Otpage()));
+                      },
+                      child: Center(
+                        child: Container(
+                          height: 91,
+                          width: 91,
+                          decoration: BoxDecoration(
                               color: const Color.fromARGB(227, 134, 174, 96),
-                              borderRadius: BorderRadius.circular(55)
-                            ),
-                            child: const Icon(Icons.arrow_forward,color:Colors.white,size: 38,
-                            ),
-                                               ),
+                              borderRadius: BorderRadius.circular(55)),
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                            size: 38,
+                          ),
                         ),
+                      ),
+                    ),
                   ),
-                ),
-              )
-           )],
-        )
-      );
+                ))
+          ],
+        ));
   }
 }
